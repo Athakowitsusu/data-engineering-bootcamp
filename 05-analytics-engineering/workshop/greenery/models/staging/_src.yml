@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: greenery
+    schema: deb_bootcamp
+    database: deb2-17aug2023
+
+    tables:
+      - name: users
+        description: Greenery users
+      - name: events
+        description: Greenery events
+      - name: addresses
+        description: Users addresses
+      - name: orders

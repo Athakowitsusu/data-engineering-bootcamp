@@ -10,9 +10,9 @@ exposures:
       Did someone say "exponential growth"?
 
     depends_on:
-      - ref('fct_orders')
-      - ref('dim_customers')
-      - source('gsheets', 'goals')
+      - ref('stg_greenery__users')
+      - source('greenery', 'events')
+
 
     owner:
       name: Skooldio

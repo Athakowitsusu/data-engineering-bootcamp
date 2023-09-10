@@ -7,10 +7,11 @@ from google.cloud import bigquery
 from google.oauth2 import service_account
 
 
-keyfile = os.environ.get("KEYFILE_PATH")
+# keyfile = os.environ.get("KEYFILE_PATH")
+keyfile = "deb2-loading-data-to-bigquery-17aug2023-d5f30835bd40.json"
 service_account_info = json.load(open(keyfile))
 credentials = service_account.Credentials.from_service_account_info(service_account_info)
-project_id = "dataengineercafe"
+project_id = "deb2-17aug2023"
 client = bigquery.Client(
     project=project_id,
     credentials=credentials,
@@ -39,7 +40,7 @@ job_config = bigquery.LoadJobConfig(
 
 file_path = "users.csv"
 with open(file_path, "rb") as f:
-    table_id = f"{project_id}.dbt_zkan.users"
+    table_id = f"{project_id}.my_deb_workshop_week2.users"
     job = client.load_table_from_file(f, table_id, job_config=job_config)
     job.result()
 

@@ -31,7 +31,25 @@ with open(f"{DATA_FOLDER}/order_items.csv", "w") as f:
     for each in results:
         writer.writerow(each)
 
+
+
+        
+
 table = "order_items"
 header = ["order_id", "product_id", "quantity"]
 # ลองดึงข้อมูลจากตาราง order_items และเขียนลงไฟล์ CSV
 # YOUR CODE HERE
+
+
+with open(f"{DATA_FOLDER}/order_items.csv", "w") as f:
+    writer = csv.writer(f)
+    writer.writerow(header)
+
+    query = f"select * from {table}"
+    cursor.execute(query)
+
+    results = cursor.fetchall()
+    for each in results:
+        writer.writerow(each)
+
+
